@@ -1,0 +1,29 @@
+{
+  "name": "header-formatter",
+  "version": "0.0.1",
+  "description": "Header Formatter",
+  "main": "index.js",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^2.1.1",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.1.0",
+    "style-loader": "^0.20.3",
+    "uglifyjs-webpack-plugin": "^1.2.6",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^3.3.0",
+    "zip-webpack-plugin": "^3.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "Li ZongYing",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lizongying/header-formatter.git"
+  }
+}
