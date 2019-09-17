@@ -37,6 +37,6 @@ text.onchange = () => {
     cookie.value = cookies.split(separator)[1].split(';').map((v) => {
         return v.split('=');
     }).map((v) => {
-        return ["'" + type ? v[0].trim().toLowerCase() : v[0].trim() + "'", "'" + v.slice(1).join('=') + "'"].join(': ');
+        return ["'" + (type ? v[0].trim().toLowerCase() : v[0].trim()) + "'", "'" + v.slice(1).join('=') + "'"].join(': ');
     }).join(',\n') + ',\n';
 };
