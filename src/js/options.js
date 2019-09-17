@@ -5,8 +5,8 @@ const cookie = document.getElementById('cookie');
 text.onchange = () => {
     const type = parseInt(document.querySelector('input[name="type"]:checked').value);
 
+    let separator = '';
     data.value = text.value.split('\n').map((v) => {
-        let separator = '';
         if (/.+\t.+/.test(v)) {
             separator = '\t';
         } else if (/.+:.+/.test(v)) {
@@ -22,7 +22,7 @@ text.onchange = () => {
         }).join(': ');
     }).filter((v) => {
         return v;
-    }).join(',\n');
+    }).join(',\n') + ',\n';
 
     const cookies = text.value.split('\n').map((v) => {
         return /cookie/i.test(v) ? v : false;
@@ -34,9 +34,9 @@ text.onchange = () => {
         return;
     }
 
-    cookie.value = cookies.split(':')[1].split(';').map((v) => {
+    cookie.value = cookies.split(separator)[1].split(';').map((v) => {
         return v.split('=');
     }).map((v) => {
         return ["'" + type ? v[0].trim().toLowerCase() : v[0].trim() + "'", "'" + v.slice(1).join('=') + "'"].join(': ');
-    }).join(',\n');
+    }).join(',\n') + ',\n';
 };
