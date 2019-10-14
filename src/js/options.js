@@ -11,6 +11,8 @@ text.onchange = () => {
             separator = '\t';
         } else if (/.+:.+/.test(v)) {
             separator = ':';
+        } else if (/.+\s.+/.test(v)) {
+            separator = ' ';
         } else {
             return;
         }
