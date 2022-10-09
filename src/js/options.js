@@ -17,11 +17,11 @@ const change = () => {
 
     let separator = '';
     data.value = text.value.split('\n').map((v) => {
-        if (/.+\t.+/.test(v)) {
+        if (/.+\t.+/.test(v.toString())) {
             separator = '\t';
-        } else if (/.+:.+/.test(v)) {
+        } else if (/.+:.+/.test(v.toString())) {
             separator = ':';
-        } else if (/.+\s.+/.test(v)) {
+        } else if (/.+\s.+/.test(v.toString())) {
             separator = ' ';
         } else {
             return;
@@ -54,7 +54,7 @@ const change = () => {
     }).join(',\n') + ',\n';
 
     const cookies = text.value.split('\n').map((v) => {
-        return /cookie/i.test(v) ? v : false;
+        return /cookie/i.test(v.toString()) ? v : false;
     }).filter((v) => {
         return v;
     })[0];

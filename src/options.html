@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
+    .type {
+        margin-right: 10px;
+    }
+
     .info {
         width: 100%;
         height: 200px;
@@ -9,17 +13,29 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Headers</title>
+    <title>Header Formatter</title>
 </head>
 
 <body>
-<input type="radio" name="type" value="default" checked><label>Default Key</label>
-<input type="radio" name="type" value="lower"><label>Lower Key</label>
-<input type="radio" name="type" value="upper"><label>Upper Key</label>
-<input type="radio" name="type" value="title"><label>Title Key</label>
-<h6>Text:</h6>
+<label class="type">
+    <input type="radio" name="type" value="default" checked>
+    Default Key
+</label>
+<label class="type">
+    <input type="radio" name="type" value="lower">
+    Lower Key
+</label>
+<label class="type">
+    <input type="radio" name="type" value="upper">
+    Upper Key
+</label>
+<label class="type">
+    <input type="radio" name="type" value="title">
+    Title Key
+</label>
+<h6>Raw:</h6>
 <textarea id="text" class="info"></textarea>
-<h6>Data:</h6>
+<h6>Formatted:</h6>
 <textarea id="data" class="info"></textarea>
 <h6>Cookie:</h6>
 <textarea id="cookie" class="info"></textarea>

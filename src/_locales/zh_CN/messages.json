@@ -3,6 +3,6 @@
     "message": "Header Formatter"
   },
   "appDesc": {
-    "message": "Header格式化，程序方便调用"
+    "message": "对Chrome、Charles中的header进行格式化，方便使用"
   }
 }
