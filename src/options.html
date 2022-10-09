@@ -5,6 +5,11 @@
         margin-right: 10px;
     }
 
+    .name {
+        display: inline-block;
+        margin-top: 10px;
+    }
+
     .info {
         width: 100%;
         height: 200px;
@@ -33,12 +38,10 @@
     <input type="radio" name="type" value="title">
     Title Key
 </label>
-<h6>Raw:</h6>
-<textarea id="text" class="info"></textarea>
-<h6>Formatted:</h6>
-<textarea id="data" class="info"></textarea>
-<h6>Cookie:</h6>
-<textarea id="cookie" class="info"></textarea>
+<hr>
+<label for="raw" class="name">Raw:</label><textarea id="raw" class="info"></textarea>
+<label for="formatted" class="name">Formatted:</label><textarea id="formatted" class="info"></textarea>
+<label for="cookie" class="name">Cookie:</label><textarea id="cookie" class="info"></textarea>
 </body>
 <script src="js/options.js"></script>
 

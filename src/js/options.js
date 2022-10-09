@@ -1,5 +1,5 @@
-const text = document.getElementById('text');
-const data = document.getElementById('data');
+const raw = document.getElementById('raw');
+const formatted = document.getElementById('formatted');
 const cookie = document.getElementById('cookie');
 const types = document.querySelectorAll('input[name="type"]');
 
@@ -16,7 +16,7 @@ const change = () => {
     const type = document.querySelector('input[name="type"]:checked').value;
 
     let separator = '';
-    data.value = text.value.split('\n').map((v) => {
+    formatted.value = raw.value.split('\n').map((v) => {
         if (/.+\t.+/.test(v.toString())) {
             separator = '\t';
         } else if (/.+:.+/.test(v.toString())) {
@@ -53,7 +53,7 @@ const change = () => {
         return v;
     }).join(',\n') + ',\n';
 
-    const cookies = text.value.split('\n').map((v) => {
+    const cookies = raw.value.split('\n').map((v) => {
         return /cookie/i.test(v.toString()) ? v : false;
     }).filter((v) => {
         return v;
@@ -90,6 +90,6 @@ types.forEach(v => {
         change();
     };
 });
-text.onchange = () => {
+raw.onchange = () => {
     change();
 };
