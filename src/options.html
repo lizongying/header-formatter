@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
+    .separator {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
     .type {
         margin-right: 10px;
     }
@@ -37,6 +42,15 @@
 <label class="type">
     <input type="radio" name="type" value="title">
     Title Key
+</label>
+<span class="separator">|</span>
+<label class="type">
+    <input type="radio" name="quotation-marks" value="&#39;" checked>
+    Single Quotation Marks `'`
+</label>
+<label class="type">
+    <input type="radio" name="quotation-marks" value="&quot;">
+    Double quotation Marks `"`
 </label>
 <hr>
 <label for="raw" class="name">Raw:</label><textarea id="raw" class="info"></textarea>

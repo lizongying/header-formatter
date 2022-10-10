@@ -2,6 +2,7 @@ const raw = document.getElementById('raw');
 const formatted = document.getElementById('formatted');
 const cookie = document.getElementById('cookie');
 const types = document.querySelectorAll('input[name="type"]');
+const quotationMarks = document.querySelectorAll('input[name="quotation-marks"]');
 
 String.prototype.toTitleCase = function () {
     return this.split('-').map(v => {
@@ -14,6 +15,7 @@ String.prototype.toTitleCase = function () {
 
 const change = () => {
     const type = document.querySelector('input[name="type"]:checked').value;
+    const quotationMark = document.querySelector('input[name="quotation-marks"]:checked').value;
 
     let separator = '';
     formatted.value = raw.value.split('\n').map((v) => {
@@ -27,7 +29,15 @@ const change = () => {
             return;
         }
 
-        let key = v.slice(0, v.indexOf(separator));
+        v = v.trim();
+        let a = v.indexOf(separator);
+        let b = a + 1;
+        if (v.charAt(0) === separator) {
+            a = v.slice(1).indexOf(separator) + 1;
+            b = a + 1;
+        }
+
+        let key = v.slice(0, a);
         switch (type) {
             case 'default':
                 break;
@@ -45,9 +55,9 @@ const change = () => {
 
         return [
             key,
-            v.slice(v.indexOf(separator) + 1).trim()
+            v.slice(b).trim()
         ].map((vv) => {
-            return "'" + vv + "'";
+            return quotationMark + vv + quotationMark;
         }).join(': ');
     }).filter((v) => {
         return v;
@@ -81,11 +91,16 @@ const change = () => {
                 break;
             default:
         }
-        return ["'" + key + "'", "'" + v.slice(1).join('=') + "'"].join(': ');
+        return [quotationMark + key + quotationMark, quotationMark + v.slice(1).join('=') + quotationMark].join(': ');
     }).join(',\n') + ',\n';
 };
 
 types.forEach(v => {
+    v.onclick = () => {
+        change();
+    };
+});
+quotationMarks.forEach(v => {
     v.onclick = () => {
         change();
     };
