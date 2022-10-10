@@ -19,17 +19,17 @@ const change = () => {
 
     let separator = '';
     formatted.value = raw.value.split('\n').map((v) => {
-        if (/.+\t.+/.test(v.toString())) {
+        v = v.trim();
+        if (/.+\t.*/.test(v)) {
             separator = '\t';
-        } else if (/.+:.+/.test(v.toString())) {
+        } else if (/.+:.*/.test(v)) {
             separator = ':';
-        } else if (/.+\s.+/.test(v.toString())) {
+        } else if (/.+\s.*/.test(v)) {
             separator = ' ';
         } else {
             return;
         }
 
-        v = v.trim();
         let a = v.indexOf(separator);
         let b = a + 1;
         if (v.charAt(0) === separator) {
